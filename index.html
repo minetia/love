@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS OMEGA - HYBRID AI TERMINAL</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="omega-container">
+        <header class="cmd-header">
+            <div class="brand-section">
+                <i class="fas fa-atom fa-spin"></i>
+                <div class="titles">
+                    <h1>NEXUS OMEGA</h1>
+                    <span>UNIVERSAL TRADING CORE</span>
+                </div>
+            </div>
+            <div class="api-status-bar">
+                <div class="api-pill" id="st-upbit"><i class="fas fa-bolt"></i> UPBIT: <span class="val">CONN</span></div>
+                <div class="api-pill" id="st-binance"><i class="fas fa-globe"></i> BINANCE: <span class="val">CONN</span></div>
+                <div class="api-pill" id="st-gecko"><i class="fas fa-leaf"></i> GECKO: <span class="val">READY</span></div>
+            </div>
+        </header>
+
+        <div class="kimp-banner">
+            <div class="price-box upbit">
+                <div class="label">UPBIT (KRW)</div>
+                <div id="price-upbit">---</div>
+            </div>
+            <div class="kimp-meter">
+                <div class="label">KIMCHI PREMIUM</div>
+                <div id="kimp-val">0.00%</div>
+                <div class="kimp-bar-bg"><div id="kimp-bar" class="kimp-bar-fill"></div></div>
+            </div>
+            <div class="price-box binance">
+                <div class="label">BINANCE (USD)</div>
+                <div id="price-binance">---</div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="panel chart-panel">
+                <div class="panel-head">
+                    <span><i class="fas fa-chart-area"></i> HYBRID CHART ANALYSIS</span>
+                    <select id="target-coin" onchange="changeTarget(this.value)">
+                        <option value="BTC">BITCOIN (BTC)</option>
+                        <option value="ETH">ETHEREUM (ETH)</option>
+                        <option value="XRP">RIPPLE (XRP)</option>
+                        <option value="SOL">SOLANA (SOL)</option>
+                        <option value="DOGE">DOGECOIN (DOGE)</option>
+                    </select>
+                </div>
+                <div id="tv-chart"></div>
+                <div class="control-deck">
+                    <div class="balance-disp">
+                        <span>ASSETS:</span> <span id="my-balance">50,000,000</span> KRW
+                    </div>
+                    <button id="btn-engine" onclick="toggleEngine()">
+                        <i class="fas fa-power-off"></i> AI ENGINE START
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel side-panel">
+                <div class="gecko-info">
+                    <div class="panel-head"><i class="fas fa-info-circle"></i> GECKO INTEL</div>
+                    <div class="info-grid">
+                        <div>RANK: <span id="info-rank">#</span></div>
+                        <div>M.CAP: <span id="info-mcap">-</span></div>
+                        <div>ATH: <span id="info-ath">-</span></div>
+                        <div>CHANGE(24h): <span id="info-change">-</span></div>
+                    </div>
+                </div>
+
+                <div class="orderbook-box">
+                    <div class="panel-head"><i class="fas fa-list"></i> ORDERBOOK DEPTH</div>
+                    <div id="ob-list"></div>
+                </div>
+
+                <div class="ai-terminal">
+                    <div class="panel-head"><i class="fas fa-brain"></i> NEURAL LOG</div>
+                    <div id="sys-log"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ultra_engine.js"></script>
+</body>
+</html>
