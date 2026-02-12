@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NEXUS HYPERCORE V2</title>
+    <title>NEXUS HYPERCORE V3</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -15,28 +15,30 @@
                 <i class="fas fa-biohazard fa-spin" style="color:#00f3ff; font-size:1.5rem;"></i>
                 <div>
                     <h1>NEXUS HYPERCORE</h1>
-                    <div class="sys-info">QUANTUM ENGINE <span class="blink">● ONLINE</span></div>
+                    <div class="sys-info">SYSTEM STATUS: <span class="blink">ONLINE</span></div>
                 </div>
             </div>
+            
             <div class="api-status">
-                <div class="status-item active"><i class="fas fa-link"></i> UPBIT</div>
-                <div class="status-item active"><i class="fas fa-globe"></i> BINANCE</div>
+                <div class="status-item active">UPBIT</div>
+                <div class="status-item active">BINANCE</div>
+                <div class="status-item active">GECKO</div>
             </div>
         </header>
 
         <div class="kimp-board">
             <div class="kimp-item">
-                <span>UPBIT (KRW)</span>
-                <strong id="price-krw" class="up-text">Loading...</strong>
+                <span class="label">UPBIT (KRW)</span>
+                <strong id="price-krw" class="up-text">---</strong>
             </div>
             <div class="kimp-center">
-                <span>KIMCHI PREMIUM</span>
+                <span class="label">KIMCHI PREMIUM</span>
                 <div id="kimp-rate">0.00%</div>
                 <div class="kimp-bar"><div id="kimp-fill" style="width:0%"></div></div>
             </div>
             <div class="kimp-item">
-                <span>BINANCE (USD)</span>
-                <strong id="price-usd" class="down-text">Loading...</strong>
+                <span class="label">BINANCE (USD)</span>
+                <strong id="price-usd" class="down-text">---</strong>
             </div>
         </div>
 
@@ -51,7 +53,7 @@
                         <option value="KRW-DOGE">도지코인 (DOGE)</option>
                     </select>
                     <div class="live-ticker">
-                        <span id="ticker-price">---</span>
+                        <span id="ticker-price">Loading...</span>
                         <span id="ticker-change">0.00%</span>
                     </div>
                 </div>
@@ -60,7 +62,7 @@
                 
                 <div class="control-deck">
                     <div class="wallet-stat">
-                        <div class="lbl">ESTIMATED EQUITY</div>
+                        <div class="lbl">TOTAL EQUITY</div>
                         <div id="core-balance" class="val">50,000,000 <span style="font-size:14px">KRW</span></div>
                     </div>
                     <button id="btn-hyper" onclick="toggleEngine()" class="btn-hyper">
@@ -94,7 +96,7 @@
 
     <div id="loadingOverlay" class="overlay">
         <div class="scanner"></div>
-        <div class="loading-text">INITIALIZING HYPERCORE...</div>
+        <div class="loading-text">SYSTEM BOOTING...</div>
     </div>
 
     <script src="simulator.js"></script>
